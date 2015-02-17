@@ -55,7 +55,7 @@ module.exports = function(app, db, config) {
     queryEndUser,
     queryEndUsers,
     createSdlPolicyV2
-  ]
+  ];
 
 
   /* ************************************************** *

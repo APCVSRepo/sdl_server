@@ -12,6 +12,7 @@
                   <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">SDL</a>
+
             </div>
 
             <!-- Navbar Links -->
@@ -19,7 +20,8 @@
 
                 <!-- Left Adjusted links, next to brand -->
                 <ul class="nav navbar-nav navbar-left">
-                    <li></li>
+                    <li ng-if="session.userRole && session.userRole.index < 4"><a ui-sref='settings'><i class="fa fa-cogs"></i> Admin</a></li>
+                    <li><a ui-sref='documentation'><i class="fa fa-file-text"></i> Documentation</a></li>
                 </ul>
 
                 <!-- Right Adjusted links -->

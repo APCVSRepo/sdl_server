@@ -9,6 +9,7 @@
  * @param SubNavService helper service to display a sub navigation designed for control buttons.
  */
 angular.module('SDL.users', []).controller('usersCtrl', ['$q', '$scope', '$state', 'DataTableService', 'SubNavService', function($q, $scope, $state, DataTable, SubNav){
+
 	// Name of the data table in the view.  This must be unique.
 	var tableName = "usersTable";
 

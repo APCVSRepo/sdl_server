@@ -1,0 +1,100 @@
+<div class="settings-container">
+    <div class="row">
+
+        <!-- Side Navigation -->
+        <div class="col-sm-3 sidebar">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li ng-repeat="form in settings.forms" ng-class=""><button ng-class="{active : settings.activeForm.id == form.id}" class="btn btn-pill" ng-click="switchForm(form.id)">{{form.name}}</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forms -->
+        <div class="col-sm-9" ng-switch="settings.activeForm.id">
+
+            <!-- Info Form -->
+            <form ng-switch-when="dataForm" name="dataForm" class="form-horizontal" role="form" novalidate>
+                <legend>SDL Data</legend>
+
+                <!-- Demo Data Activated -->
+                <div class="form-group">
+                    <label for="demoDataSwitch" class="col-sm-2 control-label">Example Data:</label>
+                    <div class="col-sm-10">
+                        <div class="col-sm-12 well">
+                            <p class="col-sm-12 lead">You can load or unload example data into the database.</p>
+                            <div class="col-sm-push-5 col-sm-2">
+                                <toggle-switch name="activatedSwitch" class="form-toggle-switch" model="settings.demoData"></toggle-switch>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Install / Uninstall Data -->
+                <div class="form-group">
+                    <label for="installDataSwitch" class="col-sm-2 control-label">Reinstall:</label>
+                    <div class="col-sm-10">
+                        <div class="col-sm-12 well">
+                            <p class="lead">You can reinitialize the database with the default user roles, languages, countries, categories, HMI levels, and users.  This will not modify non-default records.</p>
+                            <button ng-click="" class="btn btn-primary btn-default col-sm-push-5 col-sm-2">Reinstall</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- Info Form -->
+            <form ng-switch-when="shaidForm" name="shaidForm" class="form-horizontal" role="form" novalidate>
+                <legend>Super Helpful Application ID Server</legend>
+
+                <!-- Accept Revoked Application Requests -->
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Allow Revoked Notifications:</label>
+                    <div class="col-sm-10">
+                        <toggle-switch name="" class="form-toggle-switch" model="settings.shaid.revokedNotificationsEnabled"><toggle-switch>
+                    </div>
+                </div>
+
+                <!-- Auth Token -->
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">SHAID Token:</label>
+                    <div class="col-sm-10">
+                        <input required type="text" class="form-control" id="" placeholder="" ng-model="settings.countries.lastUpdated"/>
+                    </div>
+                </div>
+
+                <!-- Revoked Application ID URL -->
+                <div class="form-group">
+                    <label for="" class="col-sm-2 control-label">Revoked Application URL:</label>
+                    <div class="col-sm-10">
+                        <input required type="text" class="form-control" id="" placeholder="" ng-model="settings.shaid.revokedApplicationUrl"/>
+                    </div>
+                </div>
+
+                <!-- Generate New Token Button -->
+                <div class="form-group">
+                    <label class="col-sm-2 control-label"></label>
+                    <div class="col-sm-10">
+                        <button ng-click="" class="btn btn-primary btn-default pull-left"><i class="fa fa-plus" /> Generate New Token</button>
+                    </div>
+                </div>
+
+
+
+                <!-- Form Controls -->
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <!-- Save -->
+                        <button ng-disabled="shaidForm.$pristine" ng-click="submit(shaidForm);" class="btn btn-primary btn-default pull-left"><i class="fa fa-save"></i> Save</button>
+                        <!-- Clear -->
+                        <button ng-hide="shaidForm.$pristine" ng-click="clearForm(shaidForm)" class="btn btn-primary btn-default pull-right"> Clear Changes</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -39,6 +39,7 @@ var modules = [
 	'SDL.functionalGroups',
 	'SDL.functionalGroup',
 	'SDL.messageType',
+  'SDL.settings',
 	'SDL.body',
 
 	'SDL.iff',
@@ -129,6 +130,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 		.state('functionalGroups', { url: '/functionalGroups', templateUrl: '/policy/functionalGroups.html', controller: 'functionalGroupsCtrl', activeTab: 'policies', roles: allRoles })
 		.state('functionalGroupCreate', { url: '/functionalGroups/create', templateUrl: '/policy/functionalGroup.html', controller: 'functionalGroupCtrl', activeTab: 'policies', roles: allRoles })
 		.state('functionalGroup', { url: '/functionalGroups/:id?activeFormId', templateUrl: '/policy/functionalGroup.html', controller: 'functionalGroupCtrl', activeTab: 'policies', roles: allRoles })
+
+    .state('settings', { url: '/settings', templateUrl: '/settings/settings.html', controller: 'settingsCtrl', activeTab: 'settings', roles: adminRoles })
 
     /******** Unhandled Routes ********/
 
