@@ -64,6 +64,10 @@ The following is a list of all the possible properties contained in each Applica
 | **ios.sdlMaxVersion** | String | Maximum version of SDL supported by the application. |
 | **ios.sdlMinVersion** | String | Minimum version of SDL supported by the application. |
 | **ios.urlScheme** | String | URL scheme for the iOS application. |
+| **ios.languages** | Array | Array of languages supported containing strings used for app launching via voice|
+| **ios.language** | Object | An object containing information about the app name in several languages, including a default. The other possible keys for these objects are ISO 639-2 language codes|
+| **ios.language.ttsName** | String | The default string used to launch the application via VR, in the specified language|
+| **iso.language.vrSynonyms** | Array | An array of strings which are the synonyms that can be used to launch the application via VR|
 | **name** | String | Name of the application. |
 
 
@@ -141,6 +145,20 @@ The following request will return all applications that are available for the mo
           "sdlMaxVersion": "3.0",
           "sdlMinVersion": "1.0",
           "urlScheme": "awesomemusicapp://"
+          "languages": [
+            "default": { // Required
+                "ttsName": "awesome music",
+                "vrSynonyms": ["awesome app", "music awesomeness"]
+            },
+            "en": {
+                "ttsName": "awesome music",
+                "vrSynonyms": ["awesome app", "music awesomeness"]
+            },
+            "sp": {
+                "ttsName": "música impresionante",
+                "vrSynonyms": ["aplicación impresionante", "buena música]
+            }
+          ]
         },
         "name": "Awesome Music App"
       }]
