@@ -55,7 +55,7 @@ module.exports = function(app, db, config) {
     queryEndUser,
     queryEndUsers,
     createSdlPolicyV2
-  ]
+  ];
 
 
   /* ************************************************** *
@@ -67,16 +67,14 @@ module.exports = function(app, db, config) {
   });
 
 	app.all('/policies.:format', function (req, res, next) {
-		console.log("Policy Requested!")
-		sender.setResponse({}, req, res, next);
+		console.log("Policy Requested! Returning static policy from server/data/saticPolicy");
+		sender.setResponse(require('../../data/staticPolicy'), req, res, next);
 	});
 
   // Build and return a policy for a specific user, car, and apps.
   app.get('/policies/sdl/1/query.:format', sdlPolicyRequest);
 
   app.get('/policies/sdl/2/query.:format', sdlPolicyRequestV2);
-
-
 
   app.get('/doit.json', function(req, res, next) {
     Phone.findOne({"_id":"5359813cb8ef790000000006"}).exec(function(err, phone) {
