@@ -1,31 +1,33 @@
-module.exports = {
+var jObject = [{
   "policy_table": {
     "module_config": {
       "preloaded_pt": true,
       "exchange_after_x_ignition_cycles": 100,
       "exchange_after_x_kilometers": 1800,
-      "exchange_after_x_days": 30,
+      "exchange_after_x_days": 20,
       "timeout_after_x_seconds": 60,
-      "seconds_between_retries": [1,
+      "seconds_between_retries": [
+        1,
         5,
         25,
         125,
-        625],
+        625
+      ],
       "endpoints": {
         "0x07": {
-          "default": ["http://192.168.0.50/policies/sdl/1/query.json"]
-        },
-        "0x04": {
-          "default": ["http://ivsu.software.ford.com/api/getsoftwareupdates"]
-        },
-        "queryAppsUrl": {
-          "default": ["http://sdl.shaid.server"]
-        },
-        "lock_screen_icon_url": {
-          "default": ["http://i.imgur.com/QwZ9uKG.png"]
-        }
-      },
-      "notifications_per_minute_by_priority": {
+          "default": ["http://policies.telematics.ford.com/api/policies"]
+         },
+         "0x04": {
+           "default": ["http://ivsu.software.ford.com/api/getsoftwareupdates"]
+         },
+         "queryAppsUrl": {
+           "default": ["http://sdl.shaid.server"]
+         },
+         "lock_screen_icon_url": {
+           "default": ["http://i.imgur.com/QwZ9uKG.png"]
+         }
+       },
+       "notifications_per_minute_by_priority": {
         "EMERGENCY": 60,
         "NAVIGATION": 15,
         "VOICECOM": 20,
@@ -38,251 +40,309 @@ module.exports = {
       "Base-4": {
         "rpcs": {
           "AddCommand": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "AddSubMenu": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "Alert": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "ButtonPress": {
-            "hmi_levels": ["FULL",
-              "LIMITED",
-              "BACKGROUND"]
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
           },
           "ChangeRegistration": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "CreateInteractionChoiceSet": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "DeleteCommand": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "DeleteFile": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "DeleteInteractionChoiceSet": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "DeleteSubMenu": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "EncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "EndAudioPassThru": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
-          },
-          "GetInteriorVehicleDataCapabilities": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "GetInteriorVehicleData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "SetInteriorVehicleData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "OnInteriorVehicleData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
+              "LIMITED"
+            ]
           },
           "GenericResponse": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "ListFiles": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnAppInterfaceUnregistered": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnAudioPassThru": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "OnButtonEvent": {
-            "hmi_levels": ["FULL",
-              "LIMITED",
-              "BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
           },
           "OnButtonPress": {
-            "hmi_levels": ["FULL",
-              "LIMITED",
-              "BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
           },
           "OnCommand": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "OnDriverDistraction": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "OnEncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnHashChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnHMIStatus": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnLanguageChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnPermissionsChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnSystemRequest": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "PerformAudioPassThru": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
           },
           "PerformInteraction": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
           },
           "PutFile": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "RegisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "ResetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "ScrollableMessage": {
-            "hmi_levels": ["FULL"]
+            "hmi_levels": [
+              "FULL"
+            ]
           },
           "SetAppIcon": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "SetDisplayLayout": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "SetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "SetMediaClockTimer": {
-            "hmi_levels": ["FULL",
-              "LIMITED",
-              "BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
           },
           "Show": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "Slider": {
-            "hmi_levels": ["FULL"]
+            "hmi_levels": [
+              "FULL"
+            ]
           },
           "Speak": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
           },
           "SubscribeButton": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "SystemRequest": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "UnregisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "UnsubscribeButton": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           }
         }
       },
@@ -290,32 +350,48 @@ module.exports = {
         "user_consent_prompt": "Location",
         "rpcs": {
           "GetVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["gps",
-              "speed"]
+              "LIMITED"
+            ],
+            "parameters": [
+              "gps",
+              "speed"
+            ]
           },
           "OnVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["gps",
-              "speed"]
+              "LIMITED"
+            ],
+            "parameters": [
+              "gps",
+              "speed"
+            ]
           },
           "SubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["gps",
-              "speed"]
+              "LIMITED"
+            ],
+            "parameters": [
+              "gps",
+              "speed"
+            ]
           },
           "UnsubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["gps",
-              "speed"]
+              "LIMITED"
+            ],
+            "parameters": [
+              "gps",
+              "speed"
+            ]
           }
         }
       },
@@ -323,7 +399,9 @@ module.exports = {
         "user_consent_prompt": "Notifications",
         "rpcs": {
           "Alert": {
-            "hmi_levels": ["BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND"
+            ]
           }
         }
       },
@@ -331,52 +409,68 @@ module.exports = {
         "user_consent_prompt": "DrivingCharacteristics",
         "rpcs": {
           "GetVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["accPedalPosition",
+              "LIMITED"
+            ],
+            "parameters": [
+              "accPedalPosition",
               "beltStatus",
               "driverBraking",
               "myKey",
               "prndl",
               "rpm",
-              "steeringWheelAngle"]
+              "steeringWheelAngle"
+            ]
           },
           "OnVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["accPedalPosition",
+              "LIMITED"
+            ],
+            "parameters": [
+              "accPedalPosition",
               "beltStatus",
               "driverBraking",
               "myKey",
               "prndl",
               "rpm",
-              "steeringWheelAngle"]
+              "steeringWheelAngle"
+            ]
           },
           "SubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["accPedalPosition",
+              "LIMITED"
+            ],
+            "parameters": [
+              "accPedalPosition",
               "beltStatus",
               "driverBraking",
               "myKey",
               "prndl",
               "rpm",
-              "steeringWheelAngle"]
+              "steeringWheelAngle"
+            ]
           },
           "UnsubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["accPedalPosition",
+              "LIMITED"
+            ],
+            "parameters": [
+              "accPedalPosition",
               "beltStatus",
               "driverBraking",
               "myKey",
               "prndl",
               "rpm",
-              "steeringWheelAngle"]
+              "steeringWheelAngle"
+            ]
           }
         }
       },
@@ -384,10 +478,13 @@ module.exports = {
         "user_consent_prompt": "VehicleInfo",
         "rpcs": {
           "GetVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["bodyInformation",
+              "LIMITED"
+            ],
+            "parameters": [
+              "bodyInformation",
               "deviceStatus",
               "engineTorque",
               "externalTemperature",
@@ -398,13 +495,17 @@ module.exports = {
               "odometer",
               "tirePressure",
               "vin",
-              "wiperStatus"]
+              "wiperStatus"
+            ]
           },
           "OnVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["bodyInformation",
+              "LIMITED"
+            ],
+            "parameters": [
+              "bodyInformation",
               "deviceStatus",
               "engineTorque",
               "externalTemperature",
@@ -415,13 +516,17 @@ module.exports = {
               "odometer",
               "tirePressure",
               "vin",
-              "wiperStatus"]
+              "wiperStatus"
+            ]
           },
           "SubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["bodyInformation",
+              "LIMITED"
+            ],
+            "parameters": [
+              "bodyInformation",
               "deviceStatus",
               "engineTorque",
               "externalTemperature",
@@ -431,13 +536,17 @@ module.exports = {
               "instantFuelConsumption",
               "odometer",
               "tirePressure",
-              "wiperStatus"]
+              "wiperStatus"
+            ]
           },
           "UnsubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["bodyInformation",
+              "LIMITED"
+            ],
+            "parameters": [
+              "bodyInformation",
               "deviceStatus",
               "engineTorque",
               "externalTemperature",
@@ -447,358 +556,132 @@ module.exports = {
               "instantFuelConsumption",
               "odometer",
               "tirePressure",
-              "wiperStatus"]
-          }
-        }
-      },
-      "PropriataryData-1": {
-        "rpcs": {
-          "DiagnosticMessage": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "GetDTCs": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "ReadDID": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          }
-        }
-      },
-      "PropriataryData-2": {
-        "rpcs": {
-          "DiagnosticMessage": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "GetDTCs": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "ReadDID": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          }
-        }
-      },
-      "ProprietaryData-3": {
-        "rpcs": {
-          "GetDTCs": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "ReadDID": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
+              "wiperStatus"
+            ]
           }
         }
       },
       "Emergency-1": {
         "rpcs": {
           "GetVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["airbagStatus",
+              "LIMITED"
+            ],
+            "parameters": [
+              "airbagStatus",
               "clusterModeStatus",
               "eCallInfo",
-              "emergencyEvent"]
+              "emergencyEvent"
+            ]
           },
           "OnVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["airbagStatus",
+              "LIMITED"
+            ],
+            "parameters": [
+              "airbagStatus",
               "clusterModeStatus",
               "eCallInfo",
-              "emergencyEvent"]
+              "emergencyEvent"
+            ]
           },
           "SubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["airbagStatus",
+              "LIMITED"
+            ],
+            "parameters": [
+              "airbagStatus",
               "clusterModeStatus",
               "eCallInfo",
-              "emergencyEvent"]
+              "emergencyEvent"
+            ]
           },
           "UnsubscribeVehicleData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"],
-            "parameters": ["airbagStatus",
+              "LIMITED"
+            ],
+            "parameters": [
+              "airbagStatus",
               "clusterModeStatus",
               "eCallInfo",
-              "emergencyEvent"]
+              "emergencyEvent"
+            ]
           }
         }
       },
       "Navigation-1": {
         "rpcs": {
           "AlertManeuver": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "ShowConstantTBT": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           },
           "UpdateTurnList": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           }
         }
       },
-      "Base-6": {
-        "rpcs": {
-          "AddCommand": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "AddSubMenu": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "Alert": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "ChangeRegistration": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "CreateInteractionChoiceSet": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "DeleteCommand": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "DeleteFile": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "DeleteInteractionChoiceSet": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "DeleteSubMenu": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "EncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "EndAudioPassThru": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "GenericResponse": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "ListFiles": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnAppInterfaceUnregistered": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnAudioPassThru": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "OnButtonEvent": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "OnButtonPress": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "OnCommand": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "OnDriverDistraction": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "OnEncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnHMIStatus": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnLanguageChange": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnPermissionsChange": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnSyncPData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "OnTBTClientState": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "PerformAudioPassThru": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "PerformInteraction": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "PutFile": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "RegisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "ResetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "ScrollableMessage": {
-            "hmi_levels": ["FULL"]
-          },
-          "SetAppIcon": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "SetDisplayLayout": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "SetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "SetMediaClockTimer": {
-            "hmi_levels": ["FULL"]
-          },
-          "Show": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "Slider": {
-            "hmi_levels": ["FULL"]
-          },
-          "Speak": {
-            "hmi_levels": ["FULL",
-              "LIMITED"]
-          },
-          "SubscribeButton": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          },
-          "SyncPData": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "UnregisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
-          },
-          "UnsubscribeButton": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED"]
-          }
-        }
-      },
-      "OnKeyboardInputOnlyGroup": {
-        "rpcs": {
-          "OnKeyboardInput": {
-            "hmi_levels": ["FULL"]
-          }
-        }
-      },
-      "OnTouchEventOnlyGroup": {
-        "rpcs": {
-          "OnTouchEvent": {
-            "hmi_levels": ["FULL"]
-          }
-        }
-      },
-      "DiagnosticMessageOnly": {
+      "PropriataryData-1": {
         "rpcs": {
           "DiagnosticMessage": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
+          },
+          "GetDTCs": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          },
+          "ReadDID": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          }
+        }
+      },
+      "ProprietaryData-3": {
+        "rpcs": {
+          "GetDTCs": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          },
+          "ReadDID": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
           }
         }
       },
@@ -806,149 +689,269 @@ module.exports = {
         "user_consent_prompt": "DataConsent",
         "rpcs": null
       },
+      "PropriataryData-2": {
+        "rpcs": {
+          "DiagnosticMessage": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          },
+          "GetDTCs": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          },
+          "ReadDID": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          }
+        }
+      },
+      "DiagnosticMessageOnly": {
+        "rpcs": {
+          "DiagnosticMessage": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED"
+            ]
+          }
+        }
+      },
+      "OnKeyboardInputOnlyGroup": {
+        "rpcs": {
+          "OnKeyboardInput": {
+            "hmi_levels": [
+              "FULL"
+            ]
+          }
+        }
+      },
+      "OnTouchEventOnlyGroup": {
+        "rpcs": {
+          "OnTouchEvent": {
+            "hmi_levels": [
+              "FULL"
+            ]
+          }
+        }
+      },
       "BaseBeforeDataConsent": {
         "rpcs": {
           "ChangeRegistration": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "DeleteFile": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "EncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "ListFiles": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnAppInterfaceUnregistered": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnEncodedSyncPData": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnHashChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnHMIStatus": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnLanguageChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnPermissionsChange": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "OnSystemRequest": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "PutFile": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "RegisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "ResetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
-          },
-          "SetGlobalProperties": {
-            "hmi_levels": ["BACKGROUND",
-              "FULL",
-              "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "SetAppIcon": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "SetDisplayLayout": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
+          },
+          "SetGlobalProperties": {
+            "hmi_levels": [
+              "BACKGROUND",
+              "FULL",
+              "LIMITED",
+              "NONE"
+            ]
           },
           "SystemRequest": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           },
           "UnregisterAppInterface": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
               "LIMITED",
-              "NONE"]
+              "NONE"
+            ]
           }
         }
       },
       "SendLocation": {
         "rpcs": {
           "SendLocation": {
-            "hmi_levels": ["BACKGROUND",
+            "hmi_levels": [
+              "BACKGROUND",
               "FULL",
-              "LIMITED"]
+              "LIMITED"
+            ]
           }
         }
       },
       "BackgroundAPT": {
         "rpcs": {
           "EndAudioPassThru": {
-            "hmi_levels": ["BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND"
+            ]
           },
           "OnAudioPassThru": {
-            "hmi_levels": ["BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND"
+            ]
           },
           "PerformAudioPassThru": {
-            "hmi_levels": ["BACKGROUND"]
+            "hmi_levels": [
+              "BACKGROUND"
+            ]
+          }
+        }
+      },
+      "DialNumberOnly": {
+        "rpcs": {
+          "DialNumber": {
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
+          }
+        }
+      },
+      "SendLocationOnly": {
+        "rpcs": {
+          "SendLocation": {
+            "hmi_levels": [
+              "FULL",
+              "LIMITED"
+            ]
           }
         }
       }
     },
     "consumer_friendly_messages": {
-      "version": "001.001.021",
+      "version": "001.001.023",
       "messages": {
         "AppPermissions": {
           "languages": {
@@ -974,16 +977,16 @@ module.exports = {
               "line2": "permission(s)?"
             },
             "en-us": {
-              "tts": "%appName% is requesting the use of the following vehicle information and permissions: %functionalGroupLabels%. If you press yes, you agree that %vehicleMake% will not be liable for any damages or loss of privacy related to %appName%’s use of your data. Please press yes to allow or no to deny.",
+              "tts": "%appName% is requesting permission to use the following: %functionalGroupLabels%.\r\nTo disable or change these settings at any time visit the SYNC mobile apps settings menu. See App terms of service and privacy policies. Ford is not responsible for App functionality. Avoid distractions and use voice controls where available. Please press yes to allow or no to deny.",
               "line1": "Grant Requested",
               "line2": "Permission(s)?",
-              "textBody": "%appName% is requesting the use of the following vehicle information and permissions: %functionalGroupLabels%. \n\nIf you press yes, you agree that %vehicleMake% will not be liable for any damages or loss of privacy related to %appName%’s use of your data. You can change these permissions and hear detailed descriptions in the mobile apps settings menu."
+              "textBody": "The %appName% App is requesting permission to use the following: %functionalGroupLabels%.\r\n\r\nTo disable or change these settings at any time visit the SYNC mobile apps settings menu. See App terms of service and privacy policies. Ford is not responsible for App functionality. Avoid distractions and use voice controls where available. I agree and consent."
             },
             "es-en": {
               "tts": "%appName% solicita el uso de la siguiente información y permisos del vehículo: %functionalGroupLabels%. Si presiona Sí, acepta que %vehicleMake% no se hará responsable por los daños o pérdidas de privacidad relacionados con el uso que %appName% haga de sus datos. Presione Sí para permitir y No para denegar.",
               "line1": "¿Otorgar permiso(s)",
               "line2": "solicitado(s)?",
-              "textBody": "%appName% solicita el uso de la siguiente información y permisos del vehículo: %functionalGroupLabels%. Si presiona Sí, acepta que %vehicleMake% no se hará responsable por los daños o pérdidas de privacidad relacionados con el uso que %appName% haga de sus datos. Presione Sí para permitir y No para denegar. \n\n Puede cambiar estos permisos y consultar descripciones detalladas en el menú de configuración de las aplicaciones móviles."
+              "textBody": "La App %appName% solicita permiso para usar: %functionalGroupLabels%. \r\n\r\nPara desactivar o cambiar la configuración, acceda al menú de SYNC® de configuración de apps. Consulte términos de servicio y políticas de privacidad de la App. Ford no es responsable de la funcionalidad de la App. Evite distracciones y use los controles de voz cuando estén disponibles. Estoy de acuerdo y acepto lo anterior."
             },
             "es-es": {
               "tts": "%appName% está solicitando el uso de los siguientes permisos e información del vehículo: %functionalGroupLabels%. Si pulsa sí, acepta que %vehicleMake% no será responsable de los daños o la pérdida de privacidad relacionados con el uso de sus datos por parte de %appName%. Pulse sí para permitir o no para denegar.",
@@ -994,13 +997,13 @@ module.exports = {
               "tts": "%appName% solicita el uso de la siguiente información y permisos del vehículo: %functionalGroupLabels%. Si presiona Sí, acepta que %vehicleMake% no se hará responsable por los daños o pérdidas de privacidad relacionados con el uso que %appName% haga de sus datos. Presione Sí para permitir y No para denegar.",
               "line1": "¿Otorgar permiso(s)",
               "line2": "solicitado(s)?",
-              "textBody": "%appName% solicita el uso de la siguiente información y permisos del vehículo: %functionalGroupLabels%. \n\nSi presiona Sí, acepta que %vehicleMake% no se hará responsable por los daños o pérdidas de privacidad relacionados con el uso que %appName% haga de sus datos. Presione Sí para permitir y No para denegar. Puede cambiar estos permisos y consultar descripciones detalladas en el menú de configuración de las aplicaciones móviles."
+              "textBody": "La App %appName% solicita permiso para usar: %functionalGroupLabels%. \r\n\r\nPara desactivar o cambiar la configuración, acceda al menú de SYNC® de configuración de apps. Consulte términos de servicio y políticas de privacidad de la App. Ford no es responsable de la funcionalidad de la App. Evite distracciones y use los controles de voz cuando estén disponibles. Estoy de acuerdo y acepto lo anterior."
             },
             "fr-ca": {
-              "tts": "%appName% demande d’utiliser les informations du véhicule et les permissions suivantes : %functionalGroupLabels%. Si vous appuyez sur Oui, vous acceptez que %vehicleMake% ne sera pas responsable des dommages ou des pertes de confidentialité reliées à l’utilisation de vos données par %appName%. Veuillez appuyer sur Oui pour autoriser ou sur Non pour refuser.",
+              "tts": "L’application %appName% demande la permission d’utiliser : %functionalGroupLabels%. \r\nPour désactiver ou modifier ces réglages de données à tout moment, consultez le menu de réglages des applications mobiles SYNC. Reportez-vous aux modalités de service et à la politique de confidentialité de l’application. Ford n’est pas responsable de la fonctionnalité de l’application. Évitez les distractions et utilisez les commandes vocales lorsqu’elles sont disponibles. Veuillez appuyer sur Oui pour autoriser ou sur Non pour refuser.",
               "line1": "Accorder permission(s)",
               "line2": "demandée(s)",
-              "textBody": "%appName% demande d’utiliser les informations du véhicule et les permissions suivantes : %functionalGroupLabels%. Si vous appuyez sur Oui, vous acceptez que %vehicleMake% ne sera pas responsable des dommages ou des pertes de confidentialité reliées à l’utilisation de vos données par %appName%. Vous pouvez modifier ces permissions et entendre les descriptions détaillées dans le menu des réglages des applications mobiles."
+              "textBody": "L’application %appName% demande la permission d’utiliser : %functionalGroupLabels%. \r\n\r\nPour désactiver ou modifier ces réglages de données à tout moment, consultez le menu de réglages des applications mobiles SYNC. Reportez-vous aux modalités de service et à la politique de confidentialité de l’application. Ford n’est pas responsable de la fonctionnalité de l’application. Évitez les distractions et utilisez les commandes vocales lorsqu’elles sont disponibles. J’accepte et je consens."
             },
             "fr-fr": {
               "tts": "%appName% demande d’utiliser les informations du véhicule et les permissions suivantes : %functionalGroupLabels%. Si vous appuyez sur Oui, vous acceptez que %vehicleMake% ne sera pas responsable des dommages ou des pertes de confidentialité reliées à l’utilisation de vos données par %appName%. Veuillez appuyer sur Oui pour autoriser ou sur Non pour refuser.",
@@ -1209,7 +1212,7 @@ module.exports = {
             "en-us": {
               "tts": "This version of %appName% is not authorized and will not work with SYNC.",
               "line1": "Not Authorized",
-              "textBody": "This version of %appName% is no longer authorized to work with AppLink. Please update to the latest version of %appName%."
+              "textBody": "This version of %appName% is no longer authorized to work with Mobile Apps. Please update to the latest version of %appName%."
             },
             "es-en": {
               "tts": "Esta versión de %appName% no tiene autorización y no funcionará con SYNC.",
@@ -1373,13 +1376,13 @@ module.exports = {
             "en-us": {
               "line1": "Enable Mobile Apps",
               "line2": "on SYNC? (Uses Data)",
-              "textBody": "Would you like to enable Mobile Apps on SYNC?\r\n\r\nTo use Mobile Apps with SYNC, SYNC will communicate with Ford at least once per month using your mobile device’s data plan. Standard rates may apply. SYNC will send your VIN and SYNC module number to Ford U.S.\r\n\r\nUpdates are about the size of an email, and the occurrence of updates depends on your vehicle usage and when a new app is found on your device. To turn on or off, visit the SYNC Settings menu. See your Owner Guide for more information."
+              "textBody": "Would you like to enable Mobile Apps on SYNC?\r\n\r\nIf you enable the use of mobile apps from your mobile device on SYNC, you agree that SYNC can periodically use your device’s data plan to send and receive data that keeps your settings current and enables app functionality. Data sent to Ford U.S. includes your VIN and SYNC module number. Standard rates may apply.\r\n\r\nTo change settings or turn off later, visit the SYNC mobile apps settings menu. See Owner Guide for more information. I agree and consent."
             },
             "es-mx": {
-              "textBody": "Para usar aplicaciones móviles con SYNC, este debe comunicarse con Ford al menos una vez al mes a través del plan de datos de su dispositivo móvil. Pueden aplicar tarifas normales. SYNC enviará su VIN y el número de módulo de SYNC a Ford de Estados Unidos de América. \n\nLas actualizaciones tienen el tamaño aproximado de un mensaje de correo electrónico, y la frecuencia de las actualizaciones depende del uso de su vehículo y de si se encuentran nuevas aplicaciones en su dispositivo. Para obtener más información, consulte la Guía del propietario. \n\nPresione Sí para permitir y No para denegar."
+              "textBody": "Si permite el uso de apps de su móvil vía SYNC®, acepta que SYNC® puede utilizar el plan de datos de su equipo para enviar y recibir info para actualizar su configuración y permitir la funcionalidad de la app. Datos enviados a Ford US incluyen VIN y # de módulo de SYNC®. Cargos a su plan de datos pueden aplicar. \r\n\r\nPara cambiar la config. de SYNC® o apagarlo, acceda a Menú de configuración de apps. Vea la Guía del Propietario para más info. Estoy de acuerdo y acepto lo anterior."
             },
             "fr-ca": {
-              "textBody": "Pour utiliser AppLink, SYNC devra communiquer avec Ford au moins une fois par mois en utilisant le forfait de données de votre appareil mobile. Les tarifs réguliers peuvent s’appliquer. SYNC enverra votre NIV et le numéro de votre module SYNC à Ford États-Unis. Les mises à jour ont la taille d’un courriel et la fréquence des mises à jour dépend de l’utilisation de votre véhicule et si une nouvelle application se trouve sur votre appareil. Consultez le Guide de l’utilisateur pour obtenir d’autres renseignements.\r\n\r\nVeuillez appuyer sur Oui pour autoriser ou sur Non pour refuser."
+              "textBody": "Si vous activez les applications mobiles sur SYNC, vous acceptez que SYNC utilise votre forfait de données afin de maintenir vos réglages à jour et assurer la pleine fonctionnalité. Parmi les données envoyées à Ford US, notons le NIV et le numéro de module SYNC. Des frais de base peuvent s’appliquer. \r\n\r\nPour modifier les réglages ou désactiver les applications, consultez le menu des réglages des applications de SYNC. Voir le Manuel du propriétaire. J’accepte et je consens."
             }
           }
         },
@@ -1525,9 +1528,9 @@ module.exports = {
               "label": "Driving characteristics"
             },
             "en-us": {
-              "tts": "An app can access the following driving characteristics: Fuel Consumption, MyKey, Seat Belt Status.",
+              "tts": "An app can access the following driving characteristics: Fuel Consumption, MyKey, Seat Belt Status, Gear Position, RPM.",
               "label": "Driving Characteristics",
-              "textBody": "An app can access the following driving characteristics: Fuel Consumption, MyKey, Seat Belt Status."
+              "textBody": "An app can access the following driving characteristics: Fuel Consumption, MyKey, Seat Belt Status, Gear Position, RPM."
             },
             "es-en": {
               "tts": "Las aplicaciones pueden acceder a las siguientes características del manejo: Consumo de combustible, MyKey, Estado del cinturón de seguridad.",
@@ -1539,14 +1542,14 @@ module.exports = {
               "label": "Características de conducción"
             },
             "es-mx": {
-              "tts": "Las aplicaciones pueden acceder a las siguientes características del manejo: Consumo de combustible, MyKey, Estado del cinturón de seguridad.",
+              "tts": "Las aplicaciones pueden acceder a las siguientes características del manejo: Consumo de combustible, MyKey, Estado del cinturón de seguridad, RPM del motor, y Posición del cambio.",
               "label": "Características del manejo",
-              "textBody": "Las aplicaciones pueden acceder a las siguientes características del manejo: Consumo de combustible, MyKey, Estado del cinturón de seguridad."
+              "textBody": "Las aplicaciones pueden acceder a las siguientes características del manejo: Consumo de combustible, MyKey, Estado del cinturón de seguridad, RPM del motor, y Posición del cambio."
             },
             "fr-ca": {
-              "tts": "Une application peut accéder aux caractéristiques de conduite suivantes: Consommation de carburant, MyKey, État des ceintures de sécurité.",
+              "tts": "Une application peut accéder aux caractéristiques de conduite suivantes: Consommation de carburant, MyKey, État des ceintures de sécurité, régime du moteur, et Position d’embrayage.",
               "label": "Caractéristiques de conduite",
-              "textBody": "Une application peut accéder aux caractéristiques de conduite suivantes: Consommation de carburant, MyKey, État des ceintures de sécurité."
+              "textBody": "Une application peut accéder aux caractéristiques de conduite suivantes: Consommation de carburant, MyKey, État des ceintures de sécurité, régime du moteur, et Position d’embrayage."
             },
             "fr-fr": {
               "tts": "Une application peut accéder aux caractéristiques de conduite suivantes: Consommation de carburant, MyKey, État des ceintures de sécurité.",
@@ -1566,7 +1569,8 @@ module.exports = {
             },
             "pt-br": {
               "tts": "Um aplicativo pode acessar as seguintes características de condução: Consumo de combustível, MyKey, Estado do cinto de segurança.",
-              "label": "Características de condução"
+              "label": "Características de condução",
+              "line1": "Caract. Condução"
             },
             "pt-pt": {
               "tts": "Uma aplicação consegue aceder às seguintes informações de condução: Consumo de combustível, MyKey, Estado dos cintos de segurança.",
@@ -1615,7 +1619,7 @@ module.exports = {
             },
             "en-us": {
               "tts": "An app can access vehicle GPS and speed.",
-              "label": "GPS and speed",
+              "label": "GPS and Speed",
               "textBody": "An app can access vehicle GPS and speed."
             },
             "es-en": {
@@ -1634,7 +1638,7 @@ module.exports = {
             },
             "fr-ca": {
               "tts": "Une application peut accéder au GPS et à la vitesse du véhicule.",
-              "label": "GPS et vitesse",
+              "label": "GPS et Vitesse",
               "textBody": "Une application peut accéder au GPS et à la vitesse du véhicule."
             },
             "fr-fr": {
@@ -1704,7 +1708,7 @@ module.exports = {
             },
             "en-us": {
               "tts": "An app can send notifications when running in the background.",
-              "label": "Push notifications",
+              "label": "Push Notifications",
               "textBody": "An app can send notifications when running in the background."
             },
             "es-en": {
@@ -1723,7 +1727,7 @@ module.exports = {
             },
             "fr-ca": {
               "tts": "Une application peut envoyer des avis lorsqu’elle fonctionne en arrière-plan.",
-              "label": "Notifications instantanées",
+              "label": "Notifications Instantanées",
               "textBody": "Une application peut envoyer des avis lorsqu’elle fonctionne en arrière-plan."
             },
             "fr-fr": {
@@ -1744,7 +1748,8 @@ module.exports = {
             },
             "pt-br": {
               "tts": "Um aplicativo pode enviar notificações quando estiver sendo executado em segundo plano.",
-              "label": "Notificações Push"
+              "label": "Notificações Push",
+              "line1": "Notificações"
             },
             "pt-pt": {
               "tts": "Uma aplicação consegue enviar notificações quando está activa em segundo plano.",
@@ -1769,6 +1774,19 @@ module.exports = {
             "zh-tw": {
               "tts": "車輛行進時，應用程式可在背景中傳送通知。",
               "label": "傳送通知"
+            }
+          }
+        },
+        "SettingAppPermissions": {
+          "languages": {
+            "en-us": {
+              "textBody": "Change %AppName%’s functionality and use of data as described below. See App terms of service and privacy policies."
+            },
+            "es-mx": {
+              "textBody": "Para cambiar la funcionalidad de %appName% y usar los datos como se describe más adelante. Consulte los términos de servicio y políticas de privacidad de la App."
+            },
+            "fr-ca": {
+              "textBody": "Pour modifier la fonctionnalité de %appName% et l’usage des données comme décrit ci-dessous. Reportez-vous aux modalités de service et à la politique de confidentialité de l’application."
             }
           }
         },
@@ -2200,9 +2218,9 @@ module.exports = {
               "label": "Vehicle information"
             },
             "en-us": {
-              "tts": "An app can access the following vehicle information: Fuel Level, Fuel Economy, Engine RPMs, Odometer, VIN, External Temperature, Gear Position, Tire Pressure.",
-              "label": "Vehicle information",
-              "textBody": "An app can access the following vehicle information: Fuel Level, Fuel Economy, Engine RPMs, Odometer, VIN, External Temperature, Gear Position, Tire Pressure."
+              "tts": "An app can access the following vehicle information: Fuel Level, Fuel Economy, Odometer, VIN, External Temperature, Tire Pressure.",
+              "label": "Vehicle Information",
+              "textBody": "An app can access the following vehicle information: Fuel Level, Fuel Economy, Odometer, VIN, External Temperature, Tire Pressure."
             },
             "es-en": {
               "tts": "Las aplicaciones pueden acceder a la siguiente información del vehículo: Nivel de combustible, Economía de combustible, RPM del motor, Cuentakilómetros, Número de identificación del vehículo, Temperatura externa, Posición del cambio, Presión de los neumáticos.",
@@ -2214,14 +2232,14 @@ module.exports = {
               "label": "Información del vehículo"
             },
             "es-mx": {
-              "tts": "Las aplicaciones pueden acceder a la siguiente información del vehículo: Nivel de combustible, Economía de combustible, RPM del motor, Cuentakilómetros, Número de identificación del vehículo, Temperatura externa, Posición del cambio, Presión de los neumáticos.",
-              "label": "Información del vehículo",
-              "textBody": "Las aplicaciones pueden acceder a la siguiente información del vehículo: Nivel de combustible, Economía de combustible, RPM del motor, Cuentakilómetros, Número de identificación del vehículo, Temperatura externa, Posición del cambio, Presión de los neumáticos."
+              "tts": "Las aplicaciones pueden acceder a la siguiente información del vehículo: Nivel de combustible, Economía de combustible, Cuentakilómetros, Número de identificación del vehículo, Temperatura externa, Presión de los neumáticos.",
+              "label": "Información del Vehículo",
+              "textBody": "Las aplicaciones pueden acceder a la siguiente información del vehículo: Nivel de combustible, Economía de combustible, Cuentakilómetros, Número de identificación del vehículo, Temperatura externa, Presión de los neumáticos."
             },
             "fr-ca": {
-              "tts": "Une application peut accéder aux informations suivantes du véhicule: Niveau de carburant, Économie de carburant, Au régime du moteur, Odomètre, NIV, Température extérieure, Position d’embrayage, Pression des pneus.",
-              "label": "Renseignements du véhicule",
-              "textBody": "Une application peut accéder aux informations suivantes du véhicule: Niveau de carburant, Économie de carburant, Au régime du moteur, Odomètre, NIV, Température extérieure, Position d’embrayage, Pression des pneus."
+              "tts": "Une application peut accéder aux informations suivantes du véhicule: Niveau de carburant, Économie de carburant, Odomètre, NIV, Température extérieure, et Pression des pneus.",
+              "label": "Renseignements du Véhicule",
+              "textBody": "Une application peut accéder aux informations suivantes du véhicule: Niveau de carburant, Économie de carburant, Odomètre, NIV, Température extérieure, et Pression des pneus."
             },
             "fr-fr": {
               "tts": "Une application peut accéder aux informations suivantes du véhicule: Niveau de carburant, Économie de carburant, Vitesse de moteur, Compteur kilométrique, NIV, Température extérieure, Position de vitesse, Pression des pneus.",
@@ -2241,7 +2259,8 @@ module.exports = {
             },
             "pt-br": {
               "tts": "Um aplicativo pode acessar as seguintes informações sobre o veículo: Nível de combustível, Economia de combustível, RPM do motor, Hodômetro, VIN, Temperatura externa, Posição das marchas, Pressão dos pneus.",
-              "label": "Informações sobre o veículo"
+              "label": "Informações sobre o veículo",
+              "line1": "Inform. Veículo"
             },
             "pt-pt": {
               "tts": "Uma aplicação consegue aceder às seguintes informações do veículo: Nível de combustível, Poupança de combustível, RPM do motor, Conta-quilómetros, VIN, Temperatura exterior, Posição da mudança de velocidade, Pressão dos pneus.",
@@ -2277,22 +2296,33 @@ module.exports = {
         "steal_focus": false,
         "priority": "NONE",
         "default_hmi": "NONE",
-        "groups": ["Base-4"]
+        "groups": [
+          "Base-4"
+        ]
       },
       "device": {
         "keep_context": false,
         "steal_focus": false,
         "priority": "NONE",
         "default_hmi": "NONE",
-        "groups": ["DataConsent-2"]
+        "groups": [
+          "DataConsent-2"
+        ]
       },
       "pre_DataConsent": {
         "keep_context": false,
         "steal_focus": false,
         "priority": "NONE",
         "default_hmi": "NONE",
-        "groups": ["BaseBeforeDataConsent"]
+        "groups": [
+          "BaseBeforeDataConsent"
+        ]
       }
     }
   }
-};
+}];
+
+//var sObject = JSON.stringify(jObject);
+//console.log(sObject);
+
+module.exports = { "data" : jObject};

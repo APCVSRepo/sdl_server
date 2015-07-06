@@ -7,7 +7,7 @@
 var url = require("url");
 
 module.exports = function(app, db, config) {
-  
+
 
   var async = require("async");
 
@@ -19,7 +19,7 @@ module.exports = function(app, db, config) {
       sender      = fox.send,                    //
       auth        = fox.authentication,          //
       model       = fox.model;
-      
+
   // Load database schemas
   var Application = db.model("Application"),
       EndUser = db.model("EndUser"),
@@ -36,7 +36,7 @@ module.exports = function(app, db, config) {
   var SDL = config["const"]["TYPE_SDL"],
       SADL = config["const"]["TYPE_SADL"];
 
-  var sdlPolicyRequest = [
+  var sdlPolicyRequest = [ //methods called in order
     queryApp,
     queryVehicle,
     populateFunctionalGroups,
@@ -68,7 +68,8 @@ module.exports = function(app, db, config) {
 
 	app.all('/policies.:format', function (req, res, next) {
 		console.log("Policy Requested! Returning static policy from server/data/saticPolicy");
-		sender.setResponse(require('../../data/staticPolicy'), req, res, next);
+    res.send(require('../../data/staticPolicy'));
+		//sender.setResponse(require('../../data/staticPolicy'), req, res, next);
 	});
 
   // Build and return a policy for a specific user, car, and apps.
@@ -108,7 +109,7 @@ module.exports = function(app, db, config) {
       sender.setResponse(uc_saved, req, res, next);
     });
   });
- 
+
 
   /* ************************************************** *
    * ******************** Route Methods
@@ -158,7 +159,7 @@ module.exports = function(app, db, config) {
 
 
   /**
-   * Creates a policy table in the original format and 
+   * Creates a policy table in the original format and
    * sets the return response.
    */
   function createSdlPolicy(req, res, next) {
@@ -221,7 +222,7 @@ module.exports = function(app, db, config) {
 
         }
       },
-      
+
       "consumer_friendly_messages": {
       },
 
@@ -276,7 +277,7 @@ module.exports = function(app, db, config) {
 
 
   /**
-   * Find all phones that have connected to the vehicle and populate the 
+   * Find all phones that have connected to the vehicle and populate the
    * user consent information.  Stores the result in the local phones variable.
    */
   function queryPhones(req, res, next) {
@@ -304,8 +305,11 @@ module.exports = function(app, db, config) {
    */
   function queryVehicle(req, res, next) {
     // Grab the VIN number from the query string or body.
+    console.log('queryVehicle');
+    console.log("req: " + JSON.stringify(req));
+    console.log("res: " + JSON.stringify(res));
     var vin = (req.body["vin"]) ? req.body.vin : url.parse(req.url, true).query["vin"];
-    
+
     // No Vin Number, for now throw an error.
     if( ! vin) {
       return next(sender.createError("Request requires a vehicle 'vin' property.", 400));
@@ -333,6 +337,9 @@ module.exports = function(app, db, config) {
   }
 
   function populateFunctionalGroups (req, res, next) {
+    console.log('populateFunctionalGroups');
+    console.log("req: " + JSON.stringify(req));
+    console.log("res: " + JSON.stringify(res));
     if(res.locals.vehicle && res.locals.vehicle.module) {
       var module = res.locals.vehicle.module.toObject();
       if(module.functionalGroups && module.functionalGroups.length > 0) {
@@ -353,6 +360,9 @@ module.exports = function(app, db, config) {
   }
 
   function populateConsumerFriendlyMessages(req, res, next) {
+    console.log('populateConsumerFriendlyMessages');
+    console.log("req: " + JSON.stringify(req));
+    console.log("res: " + JSON.stringify(res));
     if(res.locals.vehicle && res.locals.vehicle.module) {
       var module = res.locals.vehicle.module.toObject();
       if(module.consumerFriendlyMessages && module.consumerFriendlyMessages.length > 0) {
@@ -377,6 +387,10 @@ module.exports = function(app, db, config) {
    */
   function queryApp(req, res, next) {
     // Get the application's key from the query string or the body.
+    console.log('QueryApp');
+    console.log("req: " + JSON.stringify(req));
+    console.log("res: " + JSON.stringify(res));
+
     var key = (req.body["app"]) ? req.body.app : url.parse(req.url, true).query["app"];
 
     // No app key, for now throw an error.
@@ -414,6 +428,7 @@ module.exports = function(app, db, config) {
 
   function queryEndUser(req, res, next) {
     // Grab the bluetooth mac address from the query string or body.
+    console.log('QueryEndUser');
     var query = {
       vehicles: res.locals.vehicle._id
     };
@@ -436,7 +451,7 @@ module.exports = function(app, db, config) {
 
       // If we don't have a serial number or mac address then we need to throw an error.
       if(usbSerial === undefined) {
-        return next(sender.createError("Request requires a 'bluetoothMacAddress' or 'usbSerial' property.", 400));  
+        return next(sender.createError("Request requires a 'bluetoothMacAddress' or 'usbSerial' property.", 400));
       }
 
       // Determine the user's phone from the list of possible phones.
@@ -447,7 +462,7 @@ module.exports = function(app, db, config) {
         }
       }
     }
-    
+
     // Find the end user with the phone and vehicle.
     EndUser.findOne(query).populate('userConsent').exec(function(err, endUser) {
       if(err) {
